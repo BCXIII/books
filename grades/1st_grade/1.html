@@ -38,12 +38,13 @@
             border-radius: 8px;
             transition: background-color 0.3s ease, color 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: calc(33.33% - 20px); /* Set the width to one-third of the container width with margin */
+            width: calc(33.33% - 20px);
         }
 
         @media (max-width: 768px) {
             button {
-                width: calc(50% - 20px); /* Set the width to one-half of the container width with margin */
+                width: 100%;
+                margin: 10px 0;
             }
         }
 
@@ -153,6 +154,7 @@
     <div class="container">
         <h1>اختر الكتاب</h1>
 
+        <!-- Updated button styles for mobile optimization -->
         <button data-english="Grade 1">عربي ج1</button>
         <button data-english="Grade 2">عربي ج2</button>
         <button data-english="Grade 3">انكليزي كتاب الطالب</button>
@@ -165,8 +167,7 @@
         <button data-english="Grade 10">كيمياء</button>
         <button data-english="Grade 11">احياء</button>
         <button data-english="Grade 12">اجتماعيات</button>
-        <button data-english="Grade 13"> فرنسي</button>
-
+        <button data-english="Grade 13">فرنسي</button>
 
         <div class="theme-switch">
             <div class="switch"></div>
@@ -175,8 +176,20 @@
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
-        $(".theme-switch").on("click", () => {
+        // Use 'touchstart' in addition to 'click' for mobile devices
+        $(".theme-switch").on("click touchstart", () => {
             $("body").toggleClass("light-theme dark-theme");
+        });
+
+        // Updated styles and spacing for mobile devices
+        $(window).on('load resize', function () {
+            if ($(window).width() < 768) {
+                $("button").css("width", "100%");
+                $("button").css("margin", "10px 0");
+            } else {
+                $("button").css("width", "calc(33.33% - 20px)");
+                $("button").css("margin", "10px");
+            }
         });
 
         // Add click event listeners to the buttons
@@ -205,7 +218,7 @@
         });
 
         $("button[data-english='Grade 7']").on("click", function () {
-        window.location.href = "الرياضيات ج1.pdf";
+            window.location.href = "الرياضيات ج1.pdf";
         });
 
         $("button[data-english='Grade 8']").on("click", function () {
@@ -229,9 +242,8 @@
         });
 
         $("button[data-english='Grade 13']").on("click", function () {
-            window.location.href = "./grades/13th_grade/13.pdf";
+            window.location.href = "Generation A1.pdf";
         });
-
     </script>
 
 </body>
