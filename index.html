@@ -40,12 +40,13 @@
             border-radius: 8px;
             transition: background-color 0.3s ease, color 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: calc(33.33% - 20px); /* Set the width to one-third of the container width with margin */
+            width: calc(33.33% - 20px);
         }
 
         @media (max-width: 768px) {
             button {
-                width: calc(50% - 20px); /* Set the width to one-half of the container width with margin */
+                width: 100%;
+                margin: 10px 0;
             }
         }
 
@@ -160,7 +161,7 @@
         <button data-english="Grade 2">الثاني متوسط</button>
         <button data-english="Grade 5">الخامس اعدادي</button>
         <button data-english="Grade 3">الثالث متوسط</button>
-        <button data-english="Grade 6">السادس اعدادي</button>   
+        <button data-english="Grade 6">السادس اعدادي</button>
 
         <div class="theme-switch">
             <div class="switch"></div>
@@ -169,33 +170,42 @@
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
-        $(".theme-switch").on("click", () => {
+        $(".theme-switch").on("click touchstart", () => {
             $("body").toggleClass("light-theme dark-theme");
         });
 
-        // Add click event listeners to the buttons
+        $(window).on('load resize', function () {
+            if ($(window).width() < 768) {
+                $("button").css("width", "100%");
+                $("button").css("margin", "10px 0");
+            } else {
+                $("button").css("width", "calc(33.33% - 20px)");
+                $("button").css("margin", "10px");
+            }
+        });
+
         $("button[data-english='Grade 1']").on("click", function () {
-            window.location.href = "./grades/1st_grade/1";
+            window.location.href = "./grades/1st_grade/1.html";
         });
 
         $("button[data-english='Grade 2']").on("click", function () {
-            window.location.href = "./grades/2nd_grade/2";
+            window.location.href = "./grades/2nd_grade/2.html";
         });
 
         $("button[data-english='Grade 3']").on("click", function () {
-            window.location.href = "./grades/3rd_grade/3";
+            window.location.href = "./grades/3rd_grade/3.html";
         });
 
         $("button[data-english='Grade 4']").on("click", function () {
-            window.location.href = "./grades/4th_grade/4";
+            window.location.href = "./grades/4th_grade/4.html";
         });
 
         $("button[data-english='Grade 5']").on("click", function () {
-            window.location.href = "./grades/5th_grade/5";
+            window.location.href = "./grades/5th_grade/5.html";
         });
 
         $("button[data-english='Grade 6']").on("click", function () {
-            window.location.href = "./grades/6th_grade/6";
+            window.location.href = "./grades/6th_grade/6.html";
         });
     </script>
 
