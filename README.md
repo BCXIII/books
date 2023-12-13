@@ -4,16 +4,19 @@ This project is a simple web page designed to help students in Iraq access educa
 
 ## Table of Contents
 
-- [Overview](#overview)
+- [Preview](#preview)
 - [Features](#features)
 - [Themes](#themes)
 - [Responsive Design](#responsive-design)
 - [Usage](#usage)
 - [Dependencies](#dependencies)
 
-## Overview
+## Preview
 
-The web page provides a user-friendly interface with buttons representing different grade levels. Users can click on a specific grade button, and they will be redirected to the relevant educational content for that grade.
+Here are some Screenshots
+
+![Main](https://i.imgur.com/LGmkMRt.png)
+![Grade](https://i.imgur.com/DUQd6Zr.png)
 
 ## Features
 
