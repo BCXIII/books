@@ -195,9 +195,13 @@
         }
 
 
+
     </style>
 </head>
-
+<body class="loading light-theme">
+    <div class="loading-screen">
+        <p>Loading...</p>
+    </div>
 <body class="light-theme">
     <div class="theme-switch-container">
         <div class="theme-switch">
@@ -214,11 +218,28 @@
         <button data-english="Grade 5">الخامس اعدادي</button>
         <button data-english="Grade 3">الثالث متوسط</button>
         <button data-english="Grade 6">السادس اعدادي</button>
-
-
-
+    </div>
     <script src="grades/min.js"></script>
     <script>
+                function removeLoadingScreen() {
+            $(".loading-screen").fadeOut(500, function () {
+                $("body").removeClass("loading");
+            });
+        }
+
+        // Load light and dark mode images
+        var lightModeImage = new Image();
+        lightModeImage.src = 'grades/icons/day-pc.jpg';
+        lightModeImage.onload = removeLoadingScreen;
+
+        var darkModeImage = new Image();
+        darkModeImage.src = 'grades/icons/night-pc.jpg';
+        darkModeImage.onload = removeLoadingScreen;
+
+        // Your existing JavaScript code
+        $(".theme-switch").on("click touchstart", () => {
+            $("body").toggleClass("light-theme dark-theme");
+        });
         $(".theme-switch").on("click touchstart", () => {
             $("body").toggleClass("light-theme dark-theme");
         });
